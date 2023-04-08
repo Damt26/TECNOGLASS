@@ -1,0 +1,234 @@
+{% extends "base.html" %} {% block page_content %}
+<div class="content-box">
+  <div class="card w-75 mx-auto h-75 overflow-auto">
+    <div class="card-body p-4">
+      <form method="post">
+        {% csrf_token %}
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_name_input"
+                name="tg_employee_name"
+                required
+              />
+              <label for="tg_employee_name_input">Nombre del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_lastname_input"
+                name="tg_employee_lastname"
+                required
+              />
+              <label for="tg_employee_lastname_input"
+                >Primer apellido del empleado</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_surname_input"
+                name="tg_employee_surname"
+                required
+              />
+              <label for="tg_employee_surname_input"
+                >Segundo apellido del empleado</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_id_type_input"
+                name="tg_employee_id_type"
+                maxlength="2"
+                required
+              />
+              <label for="tg_employee_id_type_input"
+                >Tipo de identificacion</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_id_input"
+                name="tg_employee_id"
+                required
+              />
+              <label for="tg_employee_id_input">Identificacion</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_work_area_input"
+                name="tg_employee_work_area"
+                required
+              />
+              <label for="tg_employee_work_area_input"
+                >Area de la empresa</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="date"
+                class="form-control"
+                id="tg_employee_birthday_input"
+                name="tg_employee_birthday"
+                required
+              />
+              <label for="tg_employee_birthday_input"
+                >Fecha de nacimiento del empleado</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_birthplace_input"
+                name="tg_employee_birthplace"
+                required
+              />
+              <label for="tg_employee_birthplace_input"
+                >Lugar de nacimiento del empleado</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_gender_input"
+                name="tg_employee_gender"
+                maxlength="1"
+                required
+              />
+              <label for="tg_employee_gender_input">Genero</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_city_input"
+                name="tg_employee_city"
+                required
+              />
+              <label for="tg_employee_city_input">Ciudad del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_distric_input"
+                name="tg_employee_distric"
+                required
+              />
+              <label for="tg_employee_distric_input">Barrio del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_employee_address_input"
+                name="tg_employee_address"
+                required
+              />
+              <label for="tg_employee_address_input"
+                >Direccion del empleado</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="tel"
+                class="form-control"
+                id="tg_employee_phone_input"
+                name="tg_employee_phone"
+                required
+              />
+              <label for="tg_employee_phone_input">Telefono del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="email"
+                class="form-control"
+                id="tg_employee_email_input"
+                name="tg_employee_email"
+                required
+              />
+              <label for="tg_employee_email_input">Correo del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <select
+                class="form-control"
+                name="tg_social_security"
+                id="tg_social_security_input"
+              >
+                <option selected>--Selecciona uno--</option>
+                {% for item in ss %}
+                <option value="{{item.id}}">
+                  {{item.tg_social_security_name}}
+                </option>
+                {%endfor%}
+              </select>
+              <label for="tg_employee_email_input"
+                >Seguridad social del empleado</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="submit-container">
+          <button class="btn btn-outline-success w-25" type="submit">
+            Crear
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

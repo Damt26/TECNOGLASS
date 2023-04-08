@@ -1,0 +1,120 @@
+{% extends "base.html" %} {% block page_content %}
+<div class="card mx-auto border border-0 w-75 shadow">
+  <div class="card-body">
+    <div class="card-content-detail">
+      <img
+        src="../../static/img/usuario.png"
+        alt="img usuario"
+        height="60px"
+        class="my-4"
+      />
+      <div class="row">
+        <div class="col mx-3">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_name_read"
+              value="{{ soc_sec.tg_social_security_name }}"
+              name="tg_social_security_name"
+            />
+            <label for="floatingInput">Nombre de la empresa</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_contact_read"
+              value="{{ soc_sec.tg_social_security_contact }}"
+              name="tg_social_security_contact"
+            />
+            <label for="floatingInput">Contacto de la empresa</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_create_read"
+              value="{{ soc_sec.tg_social_security_create }}"
+              name="tg_social_security_create"
+            />
+            <label for="floatingInput">Fecha de creacion</label>
+          </div>
+        </div>
+
+        <div class="col mx-3">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_nit_read"
+              value="{{ soc_sec.tg_social_security_nit }}"
+              name="tg_social_security_nit"
+            />
+            <label for="floatingInput">NIT de la empresa</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_city_read"
+              value="{{ soc_sec.tg_social_security_city }}"
+              name="tg_social_security_city"
+            />
+            <label for="floatingInput">Ciudad de la empresa</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_update_read"
+              value="{{ soc_sec.tg_social_security_update }}"
+              name="tg_social_security_update"
+            />
+            <label for="floatingInput">Fecha de actualizacion</label>
+          </div>
+        </div>
+        <div class="col mx-3">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_email"
+              value="{{ soc_sec.tg_social_security_email }}"
+              name="tg_social_security_email"
+            />
+            <label for="floatingInput">Correo de la empresa</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_active_read"
+              value="{{ soc_sec.tg_social_security_active }}"
+              name="tg_social_security_active"
+            />
+            <label for="floatingInput">Activo</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="tg_social_security_delete_read"
+              value="{{ soc_sec.tg_social_security_delete }}"
+              name="tg_social_security_delete"
+            />
+            <label for="floatingInput">Fecha de desactivacion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="submit-container">
+      <button class="btn btn-outline-success w-25" type="submit">
+        Actualizar
+      </button>
+    </div>
+  </div>
+</div>
+{% endblock %}

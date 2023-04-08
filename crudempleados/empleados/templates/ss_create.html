@@ -1,0 +1,78 @@
+{% extends "base.html" %} {% block page_content %}
+<script src="../static/js/date.js" type="text/javascript"></script>
+<div class="content-box">
+  <div class="card w-50 mx-auto">
+    <div class="card-body p-4">
+      <form method="post">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_social_security_name_input"
+                name="tg_social_security_name"
+                required
+              />
+              <label for="tg_social_security_name_input"
+                >Nombre de la empresa</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_social_security_contact_input"
+                name="tg_social_security_contact"
+                required
+              />
+              <label for="tg_social_security_contact_input"
+                >Contacto de la empresa</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_social_security_nit_input"
+                name="tg_social_security_nit"
+                required
+              />
+              <label for="tg_social_security_nit_input"
+                >NIT de la empresa</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                type="text"
+                class="form-control"
+                id="tg_social_security_city_input"
+                name="tg_social_security_city"
+                required
+              />
+              <label for="tg_social_security_city_input"
+                >Ciudad de la empresa</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="submit-container">
+          <button class="btn btn-outline-success w-25" type="submit">
+            Crear
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

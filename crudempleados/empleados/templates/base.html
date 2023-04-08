@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tecnoglass</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+  </head>
+
+  <body>
+    <header class="bg-transparent mb-4">
+      <nav class="navbar navbar-expand-lg bg-transparent">
+        <div class="container-fluid bg-transparent">
+          <a class="navbar-brand" href="/">
+            <img
+              src="../../static/svg/LogoTecnoglassBlanco.svg"
+              alt="logo Tecnoglass"
+              height="40px"
+            />
+          </a>
+        </div>
+        <a
+          class="text-light fs-6 text-decoration-none text-nowrap mx-3"
+          href="/social_security"
+          >Seguridad social</a
+        >
+        <a
+          class="text-light fs-6 text-decoration-none text-nowrap mx-3"
+          href="/social_security/create"
+          >Crear seguridad social</a
+        >
+        <a
+          class="text-light fs-6 text-decoration-none text-nowrap mx-3"
+          href="/employees/create"
+          >Crear empleado</a
+        >
+      </nav>
+    </header>
+    {% block page_content %}{% endblock %}
+  </body>
+</html>

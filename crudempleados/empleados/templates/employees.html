@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block page_content %}
+<div class="row bg-transparent w-100 row-cols-4 g-4">
+  {% for employee in employees %}
+  <div class="col">
+    <div class="card mx-auto border border-0 w-75 shadow">
+      <div class="card-body">
+        <div class="card-content">
+          <img
+            src="../static/img/usuario.png"
+            alt="img usuario"
+            height="45px"
+            class="mb-2"
+          />
+          <p class="fw-bold">{{ employee.tg_employee_name }}</p>
+          <p class="fw-light fst-italic">
+            {{ employee.tg_employee_id_type}} {{ employee.tg_employee_id }}
+          </p>
+          <p>{{ employee.tg_employee_work_area }}</p>
+
+          <a class="btn btn-outline-secondary" href="employee/{{employee.id}}">
+            Mas info
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

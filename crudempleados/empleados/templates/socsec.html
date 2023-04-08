@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block page_content %}
+<div class="row bg-transparent w-100 row-cols-4 g-4">
+  {% for ss in soc_sec %}
+  <div class="col">
+    <div class="card mx-auto border border-0 w-75 shadow">
+      <div class="card-body">
+        <div class="card-content">
+          <img
+            src="../static/img/usuario.png"
+            alt="img usuario"
+            height="45px"
+            class="mb-2"
+          />
+          <p class="fw-bold">{{ ss.tg_social_security_name }}</p>
+          <p class="fw-light fst-italic">{{ ss.tg_social_security_nit }}</p>
+          <a class="btn btn-outline-secondary" href="social_security/{{ss.id}}">
+            Mas info
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

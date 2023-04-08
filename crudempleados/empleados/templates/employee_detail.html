@@ -1,0 +1,307 @@
+{% extends "base.html" %} {% block page_content %}
+<form method="post">
+  {% csrf_token %}
+  <div class="card mx-auto border border-0 w-75 shadow">
+    <div class="card-body">
+      <div class="card-content-detail">
+        <img
+          src="../../static/img/usuario.png"
+          alt="img usuario"
+          height="60px"
+          class="my-4"
+        />
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_name_read"
+                value="{{ employee.tg_employee_name }}"
+                name="tg_employee_name"
+              />
+              <label class="fs-6" class="fs-6" for="floatingInput"
+                >Nombre</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_lastname_read"
+                value="{{ employee.tg_employee_lastname }}"
+                name="tg_employee_lastname"
+              />
+              <label class="fs-6" for="floatingInput">Primer apellido</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_surname_read"
+                value="{{ employee.tg_employee_surname }}"
+                name="tg_employee_surname"
+              />
+              <label class="fs-6" for="floatingInput">Segundo apellido</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_id_type_read"
+                value="{{ employee.tg_employee_id_type }}"
+                name="tg_employee_id_type"
+              />
+              <label class="fs-6" for="floatingInput"
+                >Tipo de identificacion</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_id_read"
+                value="{{ employee.tg_employee_id }}"
+                name="tg_employee_id"
+              />
+              <label class="fs-6" for="floatingInput">Identificacion</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_work_area_read"
+                value="{{ employee.tg_employee_work_area }}"
+                name="tg_employee_work_area"
+              />
+              <label class="fs-6" for="floatingInput">Area de trabajo</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_birthday_input"
+                value="{{ employee.tg_employee_birthday }}"
+                name="tg_employee_birthday"
+              />
+              <label class="fs-6" for="floatingInput"
+                >Fecha de nacimiento</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_birthplace_input"
+                value="{{ employee.tg_employee_birthplace }}"
+                name="tg_employee_birthplace"
+              />
+              <label class="fs-6" for="floatingInput"
+                >Lugar de nacimiento</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_gender_read"
+                value="{{ employee.tg_employee_gender }}"
+                name="tg_employee_gender"
+              />
+              <label class="fs-6" class="fs-6" for="floatingInput"
+                >Genero</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_city_input"
+                name="tg_employee_city"
+                value="{{employee.tg_employee_city}}"
+              />
+              <label for="tg_employee_city_input">Ciudad del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_distric_input"
+                name="tg_employee_distric"
+                value="{{employee.tg_employee_distric}}"
+              />
+              <label for="tg_employee_distric_input">Barrio del empleado</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_address_input"
+                name="tg_employee_address"
+                value="{{employee.tg_employee_address}}"
+              />
+              <label for="tg_employee_address_input"
+                >Direccion del empleado</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_phone_read"
+                value="{{ employee.tg_employee_phone }}"
+                name="tg_employee_phone"
+              />
+              <label for="floatingInput">Telefono</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_email_read"
+                value="{{ employee.tg_employee_email }}"
+                name="tg_employee_email"
+              />
+              <label for="floatingInput">Correo</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                name="tg_social_security"
+                id="tg_social_security_input"
+                value="{{employee.tg_social_security.tg_social_security_name}}"
+              />
+              <label for="floatingInput">Seguridad social</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_create_read"
+                value="{{ employee.tg_employee_create }}"
+                name="tg_employee_create"
+              />
+              <label class="fs-6" for="floatingInput">Fecha de creacion</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_update_read"
+                value="{{ employee.tg_employee_update }}"
+                name="tg_employee_update"
+              />
+              <label class="fs-6" for="floatingInput"
+                >Fecha de modificacion</label
+              >
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_delete_read"
+                value="{{ employee.tg_employee_delete }}"
+                name="tg_employee_delete"
+              />
+              <label class="fs-6" for="floatingInput"
+                >Fecha de eliminacion</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-floating mb-3 mx-3">
+              <input
+                readonly
+                type="text"
+                class="form-control"
+                id="tg_employee_email_read"
+                value="{{ employee.tg_employee_active }}"
+                name="tg_employee_active"
+              />
+              <label class="fs-6" for="floatingInput">Active?</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-container">
+        <a
+          class="btn btn-outline-warning"
+          href="/employee/{{employee.id}}/update"
+        >
+          edit
+        </a>
+        <a
+          class="btn btn-outline-danger"
+          href="/employee/{{employee.id}}/delete"
+          >delete</a
+        >
+      </div>
+    </div>
+  </div>
+</form>
+{% endblock %}
