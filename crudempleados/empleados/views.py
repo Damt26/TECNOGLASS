@@ -1,8 +1,6 @@
 from datetime import tzinfo
-from django.shortcuts import get_object_or_404, redirect, render
-from empleados.models import Tg_employee, Tg_social_security
-from django.utils.datetime_safe import datetime
-# Create your views here.
+from django.shortcuts import redirect, render
+from empleados.models import Tg_employee, Tg_social_security, Tg_city, Tg_gender
 
 from django.utils import timezone
 
@@ -62,7 +60,9 @@ def social_security_delete(request, ss_pk):
 
 def employee_creation(request):
     context = {
-        "ss": Tg_social_security.objects.all()
+        "ss": Tg_social_security.objects.all(),
+        "gender": Tg_gender.objects.all(),
+        "city": Tg_city.objects.all()
     }
     try:
         if request.method == "POST":
@@ -76,7 +76,9 @@ def employee_creation(request):
             em.tg_employee_birthplace = request.POST.get(
                 'tg_employee_birthplace')
             em.tg_employee_phone = request.POST.get('tg_employee_phone')
-            em.tg_employee_city = request.POST.get('tg_employee_city')
+            em.tg_employee_city = Tg_city.objects.get(pk=request.POST.get(
+                'tg_employee_city'))
+            em.tg_employee_address = request.POST.get('tg_employee_address')
             em.tg_employee_distric = request.POST.get('tg_employee_distric')
             em.tg_employee_create = timezone.now()
             em.tg_employee_update = timezone.now()
@@ -85,7 +87,8 @@ def employee_creation(request):
             em.tg_employee_id_type = request.POST.get('tg_employee_id_type')
             em.tg_employee_id = request.POST.get('tg_employee_id')
             em.tg_employee_email = request.POST.get('tg_employee_email')
-            em.tg_employee_gender = request.POST.get('tg_employee_gender')
+            em.tg_employee_gender = Tg_gender.objects.get(
+                pk=request.POST.get('tg_employee_gender'))
             em.save()
             return redirect('/')
 
@@ -95,6 +98,9 @@ def employee_creation(request):
 
 
 def social_security_creation(request):
+    context = {
+        "city": Tg_city.objects.all()
+    }
     if request.method == "POST":
         try:
             ss = Tg_social_security()
@@ -104,8 +110,8 @@ def social_security_creation(request):
                 'tg_social_security_nit')
             ss.tg_social_security_contact = request.POST.get(
                 'tg_social_security_contact')
-            ss.tg_social_security_city = request.POST.get(
-                'tg_social_security_city')
+            ss.tg_social_security_city = Tg_city.objects.get(pk=request.POST.get(
+                'tg_social_security_city'))
             ss.tg_social_security_create = timezone.now()
             ss.tg_social_security_update = timezone.now()
             ss.save()
@@ -114,13 +120,14 @@ def social_security_creation(request):
         except Exception as e:
             return (e)
 
-    return render(request, 'ss_create.html')
+    return render(request, 'ss_create.html', context)
 
 
 def social_security_update(request, ss_pk):
     ss = Tg_social_security.objects.get(pk=ss_pk)
     context = {
-        "soc_sec": ss
+        "soc_sec": ss,
+        "city": Tg_city.objects.all()
     }
     if request.method == "POST":
         try:
@@ -130,8 +137,8 @@ def social_security_update(request, ss_pk):
                 'tg_social_security_nit')
             ss.tg_social_security_contact = request.POST.get(
                 'tg_social_security_contact')
-            ss.tg_social_security_city = request.POST.get(
-                'tg_social_security_city')
+            ss.tg_social_security_city = Tg_city.objects.get(pk=request.POST.get(
+                'tg_social_security_city'))
             ss.tg_social_security_update = timezone.now()
             ss.save(force_update=True)
 
@@ -147,7 +154,9 @@ def employee_update(request, employee_pk):
     ss = Tg_social_security.objects.all()
     context = {
         "employee": employee,
-        "ss": ss
+        "ss": ss,
+        "gender": Tg_gender.objects.all(),
+        "city": Tg_city.objects.all()
     }
     try:
         if request.method == "POST":
@@ -160,7 +169,8 @@ def employee_update(request, employee_pk):
             employee.tg_employee_birthplace = request.POST.get(
                 'tg_employee_birthplace')
             employee.tg_employee_phone = request.POST.get('tg_employee_phone')
-            employee.tg_employee_city = request.POST.get('tg_employee_city')
+            employee.tg_employee_city = Tg_city.objects.get(pk=request.POST.get(
+                'tg_employee_city'))
             employee.tg_employee_distric = request.POST.get(
                 'tg_employee_distric')
             employee.tg_employee_update = timezone.now()
@@ -170,8 +180,8 @@ def employee_update(request, employee_pk):
                 'tg_employee_id_type')
             employee.tg_employee_id = employee.tg_employee_id
             employee.tg_employee_email = request.POST.get('tg_employee_email')
-            employee.tg_employee_gender = request.POST.get(
-                'tg_employee_gender')
+            employee.tg_employee_gender = Tg_gender.objects.get(
+                pk=request.POST.get('tg_employee_gender'))
             employee.tg_employee_address = request.POST.get(
                 'tg_employee_address')
             employee.save()

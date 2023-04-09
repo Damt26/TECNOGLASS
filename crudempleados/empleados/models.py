@@ -3,6 +3,22 @@ from django.utils import timezone
 # Create your models here.
 
 
+class Tg_city(models.Model):
+    tg_city_name = models.TextField(
+        max_length=20, help_text='Nombre de la ciudad', null=False)
+
+    def __str__(self):
+        return self.tg_city_name
+
+
+class Tg_gender(models.Model):
+    tg_gender_name = models.TextField(
+        max_length=1, help_text='Genero', null=False)
+
+    def __str__(self):
+        return self.tg_gender_name
+
+
 class Tg_social_security(models.Model):
     tg_social_security_name = models.TextField(
         max_length=15, help_text='Nombre de la EPS', null=False)
@@ -10,8 +26,9 @@ class Tg_social_security(models.Model):
         max_length=9, help_text='NIT de la empresa', null=False)
     tg_social_security_contact = models.TextField(
         max_length=10, help_text='Telefono de la empresa', null=False)
-    tg_social_security_city = models.TextField(
-        max_length=20, help_text='Ciudad de la empresa', null=False)
+    tg_social_security_city = models.ForeignKey(
+        Tg_city, on_delete=models.CASCADE
+    )
     tg_social_security_email = models.EmailField(
         default='test@gmail.com', help_text='Correo de la empresa', null=False)
     tg_social_security_active = models.BooleanField(
@@ -42,8 +59,9 @@ class Tg_employee(models.Model):
         max_length=12, default='999999999999', help_text='identificacion del empleado', null=False)
     tg_employee_email = models.TextField(
         help_text='correo del empleado', null=True)
-    tg_employee_gender = models.TextField(
-        max_length=1, default='O', help_text='genero del empleado', null=False)
+    tg_employee_gender = models.ForeignKey(
+        Tg_gender, on_delete=models.CASCADE
+    )
     tg_employee_birthday = models.DateTimeField(
         help_text='Fecha de nacimiento del empleado', null=False)
     tg_employee_birthplace = models.TextField(
@@ -54,8 +72,9 @@ class Tg_employee(models.Model):
         max_length=10, help_text='Telefono del empleado', null=False)
     tg_employee_address = models.TextField(
         max_length=40, help_text='Direccion del empleado', null=False)
-    tg_employee_city = models.TextField(
-        max_length=15, help_text='Ciudad del empleado', null=False)
+    tg_employee_city = models.ForeignKey(
+        Tg_city, on_delete=models.CASCADE
+    )
     tg_employee_distric = models.TextField(
         max_length=20, help_text='Barrio del empleado', null=True)
     tg_employee_active = models.BooleanField(

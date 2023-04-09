@@ -124,30 +124,44 @@
           </div>
           <div class="col">
             <div class="form-floating mb-3 mx-3">
-              <input
-                type="text"
+              <select
                 class="form-control"
-                id="tg_employee_gender_read"
-                value="{{ employee.tg_employee_gender }}"
                 name="tg_employee_gender"
-              />
-              <label class="fs-6" class="fs-6" for="floatingInput"
-                >Genero</label
+                id="tg_employee_gender_read"
               >
+                {% for item in gender %}
+                <p></p>
+                {%if item.id == employee.tg_employee_gender.id %}
+                <option value="{{item.id}}" selected>
+                  {{item.tg_gender_name}}
+                </option>
+                {%else%}
+                <option value="{{item.id}}">{{item.tg_gender_name}}</option>
+                {%endif%} {%endfor%}
+              </select>
+              <label for="tg_employee_gender_read">Genero</label>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col">
             <div class="form-floating mb-3 mx-3">
-              <input
-                type="text"
+              <select
                 class="form-control"
-                id="tg_employee_city_input"
                 name="tg_employee_city"
-                value="{{employee.tg_employee_city}}"
-              />
-              <label for="tg_employee_city_input">Ciudad del empleado</label>
+                id="tg_employee_city_read"
+              >
+                {% for item in city %}
+                <p></p>
+                {%if item.id == employee.tg_employee_city.id %}
+                <option value="{{item.id}}" selected>
+                  {{item.tg_city_name}}
+                </option>
+                {%else%}
+                <option value="{{item.id}}">{{item.tg_city_name}}</option>
+                {%endif%} {%endfor%}
+              </select>
+              <label for="tg_employee_city_read">Ciudad del empleado</label>
             </div>
           </div>
           <div class="col">

@@ -27,6 +27,7 @@
                 class="form-control"
                 id="tg_social_security_contact_input"
                 name="tg_social_security_contact"
+                maxlength="10"
                 required
               />
               <label for="tg_social_security_contact_input"
@@ -43,6 +44,7 @@
                 class="form-control"
                 id="tg_social_security_nit_input"
                 name="tg_social_security_nit"
+                maxlength="9"
                 required
               />
               <label for="tg_social_security_nit_input"
@@ -52,13 +54,17 @@
           </div>
           <div class="col">
             <div class="form-floating mb-3 mx-3">
-              <input
-                type="text"
+              <select
                 class="form-control"
-                id="tg_social_security_city_input"
                 name="tg_social_security_city"
+                id="tg_social_security_city_input"
                 required
-              />
+              >
+                <option selected>--Selecciona uno--</option>
+                {% for item in city %}
+                <option value="{{item.id}}">{{item.tg_city_name}}</option>
+                {%endfor%}
+              </select>
               <label for="tg_social_security_city_input"
                 >Ciudad de la empresa</label
               >
